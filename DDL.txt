@@ -1,0 +1,33 @@
+import warnings
+warnings.filterwarnings("ignore")
+import pandas
+import ibm_db_dbi
+conn =
+{
+  "hostname": "dashdb-txn-sbox-yp-dal09-04.services.dal.bluemix.net",
+  "password": "t3cbv0h+dqmbvktw",
+  "https_url": "https://dashdb-txn-sbox-yp-dal09-04.services.dal.bluemix.net",
+  "port": 50000,
+  "ssldsn": "DATABASE=BLUDB;HOSTNAME=dashdb-txn-sbox-yp-dal09-04.services.dal.bluemix.net;PORT=50001;PROTOCOL=TCPIP;UID=tpb56407;PWD=t3cbv0h+dqmbvktw;Security=SSL;",
+  "host": "dashdb-txn-sbox-yp-dal09-04.services.dal.bluemix.net",
+  "jdbcurl": "jdbc:db2://dashdb-txn-sbox-yp-dal09-04.services.dal.bluemix.net:50000/BLUDB",
+  "uri": "db2://tpb56407:t3cbv0h%2Bdqmbvktw@dashdb-txn-sbox-yp-dal09-04.services.dal.bluemix.net:50000/BLUDB",
+  "db": "BLUDB",
+  "dsn": "DATABASE=BLUDB;HOSTNAME=dashdb-txn-sbox-yp-dal09-04.services.dal.bluemix.net;PORT=50000;PROTOCOL=TCPIP;UID=tpb56407;PWD=t3cbv0h+dqmbvktw;",
+  "username": "tpb56407",
+  "ssljdbcurl": "jdbc:db2://dashdb-txn-sbox-yp-dal09-04.services.dal.bluemix.net:50001/BLUDB:sslConnection=true;"
+}
+
+pconn = ibm_db_dbi.Connection(conn)
+
+stmt = ibm_db.exec_immediate(conn,
+"CREATE TABLE Census_Data(
+COMMUNITY_AREA_NUMBER	integer PRIMARY KEY NOT NULL,
+COMMUNITY_AREA_NAME	
+PERCENT OF HOUSING CROWDED	
+PERCENT HOUSEHOLDS BELOW POVERTY	
+PERCENT AGED 16+ UNEMPLOYED	
+PERCENT AGED 25+ WITHOUT HIGH SCHOOL DIPLOMA	
+PERCENT AGED UNDER 18 OR OVER 64	
+PER_CAPITA_INCOME 	
+HARDSHIP_INDEX
